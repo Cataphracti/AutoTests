@@ -29,8 +29,13 @@ def mp_auth():
     return f"Bearer {token}"
 
 
-def get_mp_vehicles_list():
-    token = mp_auth()
+
+token = mp_auth()
+
+
+
+
+def get_vehicles_list():
     headers = {
         'User-Agent': 'Smartseeds.Driver (Android 14; samsung A34 polzovatelya Alen; 2.0.12)',
         'Accept': '*/*',
@@ -51,7 +56,51 @@ def get_mp_vehicles_list():
     print(vehicles_list.json())
 
 
+def get_drivers_list():
+    headers = {
+        'User-Agent': 'Smartseeds.Driver (Android 14; samsung A34 polzovatelya Alen; 2.0.12)',
+        'Accept': '*/*',
+        'Authorization': token  # Используем токен из mp_auth()
+    }
+    drivers_list = requests.get(
+        'https://smartseeds.ru/api/native/v1.0/drivers?page=1&per-page=1000',
+        headers=headers
+    )
+
+    print("Статус код списка В:", drivers_list.status_code)  # Для отладки
+
+    if drivers_list.status_code != 200:
+        print("Ошибка запроса списка В! Ответ сервера:", drivers_list.text)
+        exit(1)
+
+    assert drivers_list.status_code == 200
+    print(drivers_list.json())
 
 
-#mp_auth()
-get_mp_vehicles_list()
+
+def get_trailers_list():
+    headers = {
+        'User-Agent': 'Smartseeds.Driver (Android 14; samsung A34 polzovatelya Alen; 2.0.12)',
+        'Accept': '*/*',
+        'Authorization': token  # Используем токен из mp_auth()
+    }
+    trailers_list = requests.get(
+        'https://smartseeds.ru/api/native/v1.0/trailers?page=1&per-page=10',
+        headers=headers
+    )
+
+    print("Статус код списка Прицепов:", trailers_list.status_code)  # Для отладки
+
+    if trailers_list.status_code != 200:
+        print("Ошибка запроса списка Прицепов! Ответ сервера:", trailers_list.text)
+        exit(1)
+
+    assert trailers_list.status_code == 200
+    print(trailers_list.json())
+
+
+
+
+get_vehicles_list()
+get_drivers_list()
+get_trailers_list()
