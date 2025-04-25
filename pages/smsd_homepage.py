@@ -13,3 +13,8 @@ class SMSDHomePage: ##Сущность домашней страницы сай�
     def click_authorize_button(self):
         authorize_button = self.browser.find_element(By.XPATH, '//*[@id="layout"]/header/div/div[1]/div[3]/div[4]/div/button') #Поиск элемента на странице
         authorize_button.click()
+
+    def username(self):
+        fld_username = self.browser.find_element(By.XPATH, '//*[@id="username"]')
+        fld_username.click()
+        fld_username
