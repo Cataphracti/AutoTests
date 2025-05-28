@@ -1,13 +1,19 @@
-import pytest
-
 from selenium.webdriver.common.by import By
-import time
 from pages.smsd_homepage import SMSDHomePage
 
-def test_test(browser):
+
+def test_authmodal_open(browser):
     home = SMSDHomePage(browser)
     home.open()
     home.click_authorize_button()
-    login_form = browser.find_element(By.XPATH, '/html/body/div[3]')
-    title = browser.find_element(By.XPATH, '/html/body/div[3]/div/div/div[1]')
+    title = browser.find_element(By.CSS_SELECTOR, 'body > div.LoginForm_Modal__LAV9A > div > div > div.LoginForm_Title__H7tk_')
     assert title.text == 'Вход'
+
+
+def test_auth(browser):
+    home = SMSDHomePage(browser)
+    home.open()
+    home.click_authorize_button()
+    home.username_auth()
+    check_user = browser.find_element(By.CSS_SELECTOR, 'body > div.root > div.interior > div.interior__side.interior__side__hidden > div.interior__mobile-visibility > div > div.side__top > div > div.side__credentials > div.side__name')
+    assert check_user.text == 'Васян Васян Васянович'

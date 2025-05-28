@@ -14,7 +14,7 @@ def mp_auth():
     "scope": "android"
     })
     headers = {
-        'User-Agent':'Smartseeds.Driver (Android 14; samsung A34 polzovatelya Alen; 2.0.12)',
+        'User-Agent':'Smartseeds.Driver (Android 14; samsung A34 polzovatelya Alen; 3.0.18)',
         'Accept':'*/*',
         'Content-Type':'application/json; charset=utf-8'
     }
@@ -26,6 +26,7 @@ def mp_auth():
 
     assert authmp.status_code == 200, f"Ожидался статус 200, но получен {authmp.status_code}"
     token = authmp.json()["access_token"]  # Отрабатывает только если статус 200
+    print(f"Токен авторизации {token}")
     return f"Bearer {token}"
 
 
