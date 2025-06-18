@@ -9,5 +9,5 @@ def browser():
     options.add_argument('--headless')
     browser = webdriver.Chrome(options=options)
     browser.maximize_window()
-    browser.implicitly_wait(3) ##  ожидания в случае долгой загрузки страницы
+    browser.implicitly_wait(3) ## Ожидание в случае долгой загрузки страницы
     yield browser
