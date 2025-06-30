@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages import gv_credentials
 
-class SMSDgv_interface:
+class Gv_Interface:
 
     def __init__(self, browser): ##Функция браузера через который будут открываться стр. и осуществляться действия
         self.browser = browser
@@ -34,7 +34,7 @@ class SMSDgv_interface:
         shippings_calculation_button.click()
 
     def click_my_orders_button(self):
-        my_orders_button = not self.browser.find_element(By.CSS_SELECTOR, 'body > div.root > div.interior > div.interior__side.interior__side__hidden > div.interior__mobile-visibility > div > div.side__menu > div:nth-child(1) > div.menuSection__children > div:nth-child(1) > a > button > div.ui-ripple-ink')
+        my_orders_button = self.browser.find_element(By.CSS_SELECTOR, 'body > div.root > div.interior > div.interior__side.interior__side__hidden > div.interior__mobile-visibility > div > div.side__menu > div:nth-child(1) > div.menuSection__children > div:nth-child(1) > a > button > div.ui-ripple-ink')
         my_orders_button.click()
 
     def click_archive_button(self):

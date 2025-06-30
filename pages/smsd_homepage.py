@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages import gv_credentials
 
-class SMSDHomePage: ##Сущность домашней страницы сайта с описанными функциями и готовыми действиями для тестов
+class SMSD_HomePage: ##Сущность домашней страницы сайта с описанными функциями и готовыми действиями для тестов
 
     def __init__(self, browser): ##Функция браузера через который будут открываться стр. и осуществляться действия
         self.browser = browser

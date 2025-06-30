@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
-from pages.smsd_homepage import SMSDHomePage
+from pages.smsd_homepage import SMSD_HomePage
 
 
 def test_authmodal_open(browser):
-    home = SMSDHomePage(browser)
+    home = SMSD_HomePage(browser)
     home.open()
     home.click_authorize_button()
     title = browser.find_element(By.CSS_SELECTOR, 'body > div.LoginForm_Modal__LAV9A > div > div > div.LoginForm_Title__H7tk_')
@@ -11,7 +11,7 @@ def test_authmodal_open(browser):
 
 
 def test_auth(browser):
-    home = SMSDHomePage(browser)
+    home = SMSD_HomePage(browser)
     home.open()
     home.click_authorize_button()
     home.username_auth()
