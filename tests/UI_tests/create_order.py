@@ -7,12 +7,12 @@ def test_order_creation(browser):
     home = SMSD_HomePage(browser)
     home.open()
     home.click_authorize_button()
-    home.username_auth()
+    home.gv_auth()
     order_page = Gv_Crt_Ordr(browser)
     order_page.p1()
     order_page.p2()
     order_page.cargo()
     order_page.weight()
     order_page.calculate()
-    check_calculation = browser.find_element(By.CSS_SELECTOR, '#ui-tab-a0a445a6 > div > div > div.calculation__body > div > div.calculation-empty.col-xs-12.col-sm-12.col-md-12.col-lg-7 > div > div.calculation-result.d-flex.flex-column.p-6.br-4.bg-white.fs-12.lh-17 > div.text-center > button > div.ui-ripple-ink')
-    assert check_calculation.text == 'Продолжить'
+    check_calculation = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/h3')
+    assert check_calculation.text == 'Текущий расчёт'
