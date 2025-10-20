@@ -16,3 +16,4 @@ def test_order_creation(browser):
     order_page.calculate()
     check_calculation = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/h3')
     assert check_calculation.text == 'Текущий расчёт'
+    browser.quit()
