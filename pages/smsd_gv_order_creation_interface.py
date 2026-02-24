@@ -48,19 +48,19 @@ class Gv_Crt_Ordr:
     def cargo(self):
         with allure.step("Открытие выпадающего списка культур"):
             self.wait.until(EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[1]/div[3]/div/div[2]/div/div[2]/span")
+                (By.XPATH, '/html/body/div[1]/div/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[1]/div[3]/div/div[2]/div/div[2]')
             )).click()
 
         with allure.step("Выбор первой культуры из списка"):
             self.wait.until(EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/div[3]/div/div/div/div/div/ul/li[1]/div")
+                (By.CSS_SELECTOR, "#tippy-3 > div > div > div > div > div > ul > li.ui-select-option.ui-select-option--type-basic.ui-select-option--size-normal.is-highlighted")
             )).click()
 
     @allure.step("Ввод массы груза: 200 тонн")
     def weight(self):
         with allure.step("Заполнение поля массы значением 200"):
             weight_input = self.wait.until(EC.element_to_be_clickable(
-                (By.XPATH, '/html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[1]/div[4]/div/div[2]/label/input')
+                (By.XPATH, '/html/body/div[1]/div/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[1]/div[4]/div/div[2]/label/input')
             ))
             weight_input.send_keys('200')
 
@@ -68,5 +68,5 @@ class Gv_Crt_Ordr:
     def calculate(self):
         with allure.step("Клик по кнопке рассчета"):
             self.wait.until(EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[2]/div[2]/button/div[4]")
+                (By.XPATH, "/html/body/div[1]/div/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/form/div[2]/div[2]/button")
             )).click()

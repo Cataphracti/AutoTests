@@ -10,9 +10,9 @@ def test_open_specific_terminal(browser):
     home.gp_auth()
     gp_page = Gp_Interface(browser)
     eq_page = EQ_interface(browser)
-    gp_page.close_reminder_popup()
+    #gp_page.close_reminder_popup()
     gp_page.click_eq_button()
     eq_page.eq_choose_NZT()
-    check_terminal_choice = browser.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[2]/div[2]/div/div[2]/div[1]/div[1]/table/thead/tr/th[2]/div/span/div/span')
+    check_terminal_choice = browser.find_element(By.CSS_SELECTOR, '#app > div > div.interior.interior--frame > div.interior__content > div.interior__body > div > div > div.scTerminal-content > div.scPlan > div > div.vxe-table--render-wrapper > div.vxe-table--layout-wrapper > div.vxe-table--viewport-wrapper > div.vxe-table--main-wrapper.sx--true.sy--true > div.vxe-table--header-wrapper.body--wrapper > div > table > thead > tr > th.vxe-table--column.vxe-header--column.col_3.fixed--visible.fixed--width.is--padding.p-0 > div > div > span > span > div > span')
     assert check_terminal_choice.text == 'Пшеница'
-
+    browser.quit()
